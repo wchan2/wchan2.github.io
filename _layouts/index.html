@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="content">
+  {{ content }}
+  {% for post in site.posts %}
+    <article class="post-body">
+      <h2 class="post-title">
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          {{ post.title }}
+        </a>
+      </h2>
+      {% include post-meta.html post=post %}
+      {% if post.excerpt %}
+        {{ post.excerpt }}
+      {% else %}
+        {{ post.content }}
+      {% endif %}
+      {% if post.excerpt %}
+        {% capture content_words %}
+          {{ post.content | number_of_words }}
+        {% endcapture %}
+        {% capture excerpt_words %}
+          {{ post.excerpt | number_of_words }}
+        {% endcapture %}
+        <a href="{{ site.baseurl }}{{ post.url }}">More &hellip;</a>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>

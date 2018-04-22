@@ -1,0 +1,6 @@
+remote_theme: fongandrew/hydeout
+theme: jekyll-theme-hydeout
+title: wchan
+description: The Software Engineering Journey
+url: https://wchan2.github.io
+baseurl: https://wchan2.github.io/

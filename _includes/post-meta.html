@@ -1,0 +1,13 @@
+<div class="post-meta">
+  <span class="post-date">{{ include.post.date | date_to_string }}</span>
+  <span class="post-categories">
+    {% for category in include.post.categories %} &bull;
+    {% for
+    node in site.pages %} {% if node.category == category or node.title == category %} {% assign category_page = node %}
+    {% endif %} {% endfor %} {% if category_page %}
+    <a href="{{ site.baseurl }}{{ category_page.url }}">
+      {{ category }}
+    </a>
+    {% else %} {{ category }} {% endif %} {% endfor %}
+  </span>
+</div>
